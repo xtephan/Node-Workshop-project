@@ -17,7 +17,7 @@ class Server():
         '''
         print("Hello world! I am the server class")
         
-        
+
     def echo_server(self,ip,port):
         
         es = EchoServer(ip,port)

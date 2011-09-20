@@ -17,7 +17,8 @@ if __name__ == '__main__':
     srv.hello()
     
     #echo server. will replay everything you say
-    srv.echo_server(IP, PORT)
+    #srv.echo_server(IP, PORT)
+    
     
     
     
