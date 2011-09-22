@@ -30,8 +30,28 @@ class Test(unittest.TestCase):
         self.assertEqual(self.LS.parsePackage("4#000"), [4,0], 'parse 4 failed')
         pass
 
-
-
+    def test_checkSanity(self):
+        
+        #package length
+        self.assertTrue( self.LS.checkSanity("1#1011001011") )
+        self.assertFalse( self.LS.checkSanity("1#10111011") )
+        
+        #package format
+        self.assertTrue( self.LS.checkSanity("1#1011001011") )
+        self.assertTrue( self.LS.checkSanity("2#1011001011") )
+        self.assertTrue( self.LS.checkSanity("3#1011001011") )
+        self.assertTrue( self.LS.checkSanity("4#1011001011") )
+        
+        self.assertFalse( self.LS.checkSanity("5#1011001011") )
+        self.assertFalse( self.LS.checkSanity("0#1011001011") )
+        self.assertFalse( self.LS.checkSanity("010110010111") )
+        
+        self.assertFalse( self.LS.checkSanity("1#1211001011") )
+        
+        
+        pass
+    
+    
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.test_sanity']
     unittest.main()
