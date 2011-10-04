@@ -3,3 +3,6 @@ Project with the electronics guys
 controling and receving data from a Stellaris Texas Instruments
 
 Server folder contains files needed for receiving data from Stellaris
+
+
+For mysql support use this extension https://github.com/petehunt/PyMySQL

@@ -5,6 +5,7 @@ Created on 15 Sep 2011
 '''
 
 import socket
+from configurations import *
 
 class EchoServer():
     '''
@@ -13,18 +14,20 @@ class EchoServer():
     '''
 
 
-    def __init__(self, ip, port):
+    def __init__(self):
+        
+        print("Starting Echo Server...")
         
         #Binds the server to the given port.
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.socket.bind( (ip, port)  )
+        self.socket.bind( (CONFIG['echo_server_ip'], CONFIG['echo_server_port'])  )
     
         #Queue up to five requests before turning clients away.
         self.socket.listen(5)
     
         #what to replay?
-        self.go_back=True
+        self.go_back=CONFIG['echo_server_sendBack']
     
     
     def set_replay(self,value):
